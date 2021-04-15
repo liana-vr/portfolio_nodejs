@@ -1,16 +1,24 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
+const path = require('path');
+const compression = require('compression');
 
 const sendGrid = require('@sendGrid/mail');
 
 
 const app = express();
 
+app.use(express.static(path.join(__dirname, 'wwwroot')));
+app.get('/', function(req, res){
+    res.sendFile(path.join(__dirname, 'wwwroot', 'index.html'));
+})
 
 app.use(bodyParser.json());
 
 app.use(cors());
+
+app.use(compression());
 
 app.use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Origin', '*'); // Change later to only allow our server
@@ -29,7 +37,7 @@ app.post('/api/email', (req, res, next) => {
 
     console.log(req.body);
 
-    sendGrid.setApiKey('');
+    sendGrid.setApiKey('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');
     const msg = {
         to: 'movinest.app@gmail.com',
         from: 'movinest.app@gmail.com',
@@ -54,6 +62,5 @@ app.post('/api/email', (req, res, next) => {
 
         });
 });
-
 
 app.listen(3030, '0.0.0.0');
