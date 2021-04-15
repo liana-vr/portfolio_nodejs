@@ -8,7 +8,7 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "SENDGRID_KEY=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 SENDGRID_EMAIL=movinest.app@gmail.com node app.js"
+    "start": "SENDGRID_KEY=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 SENDGRID_EMAIL=movinest.app@gmail.com node app.js"
   },
   "author": "Liana",
   "license": "ISC",
