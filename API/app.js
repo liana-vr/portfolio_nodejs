@@ -39,8 +39,8 @@ app.post('/api/email', (req, res, next) => {
 
     sendGrid.setApiKey(`${process.env.SENDGRID_KEY}`);
     const msg = {
-        to: 'movinest.app@gmail.com',
-        from: 'movinest.app@gmail.com',
+        to: `${process.env.SENDGRID_EMAIL}`,
+        from: `${process.env.SENDGRID_EMAIL}`,
         subject: 'Portfolio Website Contact',
         text: 'FROM: ' + req.body.email + ' MESSAGE: ' + req.body.message
     }
