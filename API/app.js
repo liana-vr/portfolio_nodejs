@@ -37,7 +37,7 @@ app.post('/api/email', (req, res, next) => {
 
     console.log(req.body);
 
-    sendGrid.setApiKey('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');
+    sendGrid.setApiKey('');
     const msg = {
         to: 'movinest.app@gmail.com',
         from: 'movinest.app@gmail.com',
