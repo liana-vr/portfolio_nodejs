@@ -37,7 +37,7 @@ app.post('/api/email', (req, res, next) => {
 
     console.log(req.body);
 
-    sendGrid.setApiKey('');
+    sendGrid.setApiKey(`${process.env.SENDGRID_KEY}`);
     const msg = {
         to: 'movinest.app@gmail.com',
         from: 'movinest.app@gmail.com',
@@ -63,4 +63,4 @@ app.post('/api/email', (req, res, next) => {
         });
 });
 
-app.listen(3030, '0.0.0.0');
+app.listen(process.env.PORT || 3030);
